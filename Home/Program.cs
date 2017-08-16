@@ -18,8 +18,8 @@ namespace Home
 //t[] items = new t[];
 
 
-    //list<int i - new list<int>();
+    //list<int> i - new list<int>();
     //i.add(16);
     //i.add(20);
-    //custom list<int>list new customlist<int>();
+    //custom list<int>list = new customlist<int>();
     //customList<lemon> Lemon = new CustomerList<lemons>();
