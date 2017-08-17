@@ -38,7 +38,7 @@ namespace UnitTestProject1
 
             list.Add("yes");
             list.Add("!yes");
-            string actualResult = list[0];
+            string actualResult = list[1];
             string exspectedResult = "!yes";
 
             Assert.AreEqual(actualResult, exspectedResult);
@@ -65,11 +65,11 @@ namespace UnitTestProject1
             list.Add("!yes");
             list.Add("!yes");
             list.Add("no");
-            string actualResult = list[0, 1];
-            string exspectedResult = "!yes, !yes";
+            string actualResult = list[0];
+            string exspectedResult = "!yes";
 
 
-            Assert.AreEqual(exspectedResult, actualResult);
+            Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
         public void SubtractingNumbers()
@@ -89,7 +89,7 @@ namespace UnitTestProject1
             string actualResult = list[1];
             string exspectedResult = "Carol";
 
-            Assert.AreEqual(exspectedResult, actualResult);
+            Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
         public void SubtractingNumbers2()
@@ -111,7 +111,7 @@ namespace UnitTestProject1
             string actualResult = list[1];
             string exspectedResult = "Sherrol";
 
-            Assert.AreEqual(exspectedResult, actualResult);
+            Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
         public void SubtractingNumbers3()
@@ -129,10 +129,10 @@ namespace UnitTestProject1
             list.Remove("Carol");
 
 
-            string actualResult = list[1];
-            string exspectedResult = "Lydia";
+            string actualResult = list[0];
+            string exspectedResult = "Mom";
 
-            Assert.AreEqual(exspectedResult, actualResult);
+            Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
         public void SubtractingNumbers4()
@@ -151,10 +151,10 @@ namespace UnitTestProject1
             list.Remove("Kevin");
 
 
-            string actualResult = list[0];
+            string actualResult = list[1];
             string exspectedResult = "Sherrol";
 
-            Assert.AreEqual(exspectedResult, actualResult);
+            Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
         public void SubtractingNumbers5()
@@ -175,7 +175,7 @@ namespace UnitTestProject1
             string actualResult = list[3];
             string exspectedResult = "Lydia";
 
-            Assert.AreEqual(exspectedResult, actualResult);
+            Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
         public void OverloadString1()
@@ -187,8 +187,8 @@ namespace UnitTestProject1
 
             string convert = list.ToString();
 
-            string actualResult = ["123"];
-            string exspectedResult = ["123"];
+            string actualResult = convert;
+            string exspectedResult = "123";
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
@@ -238,8 +238,8 @@ namespace UnitTestProject1
 
 
 
-            int actualResult = together.count;
-            int exspectedResult = 5;
+            int actualResult = together.Count;
+            int exspectedResult = 6;
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
@@ -249,13 +249,15 @@ namespace UnitTestProject1
             CustomList<int> list = new CustomList<int>();
             CustomList<int> otherlist = new CustomList<int>();
 
-            list.Add(1, 2, 3);
-            otherlist.Add(4, 5, 6);
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            otherlist.Add(2, 5, 6);
             CustomList<int> together = list + otherlist;
 
 
-            int actualResult = together.count;
-            int exspectedResult = 5;
+            int actualResult = together[2];
+            int exspectedResult = 3;
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
@@ -265,21 +267,21 @@ namespace UnitTestProject1
             CustomList<int> list = new CustomList<int>();
             CustomList<int> otherlist = new CustomList<int>();
 
-            list.Add(1, 2);
+            list.Add(1);
             list.Add(2);
             otherlist.Add(4);
-            otherlist.Add(5, 6);
+            otherlist.Add(5);
             CustomList<int> together = list + otherlist;
 
 
 
-            int actualResult = together.count;
-            int exspectedResult = 5;
+            int actualResult = together[2];
+            int exspectedResult = 4;
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
-        public void Subtract2InstancesTest1()
+        public void Subtract1InstancesTest1()
         {
             CustomList<int> list = new CustomList<int>();
             CustomList<int> otherlist = new CustomList<int>();
@@ -295,12 +297,12 @@ namespace UnitTestProject1
 
 
             int actualResult = together.count;
-            int exspectedResult = 1;
+            int exspectedResult = 2;
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
-        public void Subtract3InstancesTest1()
+        public void Subtract2InstancesTest2()
         {
             CustomList<int> list = new CustomList<int>();
             CustomList<int> otherlist = new CustomList<int>();
@@ -317,7 +319,30 @@ namespace UnitTestProject1
 
 
 
-            int actualResult = together.count;
+            int actualResult = together[2];
+            int exspectedResult = 4;
+
+            Assert.AreEqual(actualResult, exspectedResult);
+        }
+        [TestMethod]
+        public void Subtract3InstancesTest3()
+        {
+            CustomList<int> list = new CustomList<int>();
+            CustomList<int> otherlist = new CustomList<int>();
+
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            otherlist.Add(1);
+            otherlist.Add(5);
+            otherlist.Add(4);
+            CustomList<int> together = list - otherlist;
+
+
+
+            int actualResult = together[1];
             int exspectedResult = 3;
 
             Assert.AreEqual(actualResult, exspectedResult);
@@ -332,11 +357,11 @@ namespace UnitTestProject1
             list.Add(3);
             list.Add(4);
             list.Add(5);
-            list.Add(3);
-            list.Add(5);
             list.Add(6);
+            list.Add(7);
+            list.Add(8);
 
-            int actualResult = list.count;
+            int actualResult = list.Count;
             int exspectedResult = 8;
 
             Assert.AreEqual(actualResult, exspectedResult);
@@ -353,7 +378,7 @@ namespace UnitTestProject1
             list.Add(5);
 
 
-            int actualResult = list.count;
+            int actualResult = list.Count;
             int exspectedResult = 5;
 
             Assert.AreEqual(actualResult, exspectedResult);
@@ -367,8 +392,8 @@ namespace UnitTestProject1
             list.Add(5);
 
 
-            int actualResult = list.count;
-            int exspectedResult = 1;
+            int actualResult = list.Count;
+            int exspectedResult = 2;
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
@@ -402,9 +427,9 @@ namespace UnitTestProject1
 
 
 
-             CustomList<string> result = Odd.Zip(even)();
-            string actualResult = result[2];
-            string exspectedResult = "3";
+             CustomList<int> result = odd.Zip(even)();
+            int actualResult = result[2];
+            int exspectedResult = 3;
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
@@ -422,7 +447,7 @@ namespace UnitTestProject1
 
 
 
-            CustomList<string> result = Odd.Zip(even)();
+            CustomList<string> result = odd.Zip(even)();
             string actualResult = result[2];
             string exspectedResult = "my";
 
@@ -443,9 +468,9 @@ namespace UnitTestProject1
 
 
 
-            CustomList<string> result = Odd.Zip(even)();
-            string actualResult = result[5];
-            string exspectedResult = "2";
+            CustomList<int> result = odd.Zip(even)();
+            int actualResult = result[5];
+            int exspectedResult = "2";
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
