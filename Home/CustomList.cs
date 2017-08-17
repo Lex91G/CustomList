@@ -8,7 +8,7 @@ namespace Home
 {
     public class CustomList<T>
     {
-        
+        T[] myList;
         public CustomList()
         {
 
@@ -16,8 +16,45 @@ namespace Home
 
         public void Add(T item)
         {
+           T Counter;
+            while(myList != null)
+            {
+                Counter++;
+            }
+            while(myList = Counter)
+            {
+                myList+= 1;
+            }
+            
 
+            }
         }
+        public void GetCounter()
+        {
+            int Counter;
+            while(myList != null)
+            {
+                Counter++;
+            }
+        }
+         public override string ToString()
+        {
+            // declare empty string
+            
+                        
+            string answerString = "";
+            foreach (T item in myList)
+            {
+                answerString += item;
+            }
+            return answerString;
+            // pull index out of list
+            // add piece from list to empty string
+                //loop this process
+            // return final string
+        }
+
+
         //public class CustomList<T> : IEnumerable
     }//list<int i - new list<int>();
     //i.add(16);
