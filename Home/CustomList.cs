@@ -12,6 +12,7 @@ namespace Home
         {
 
         }
+        //public class CustomList<T> : IEnumerable
     }//list<int i - new list<int>();
     //i.add(16);
     //i.add(20);
