@@ -15,7 +15,7 @@ namespace Home
             get { return myList[i]; }
             set { myList[i] = value; }
         }
-        
+
         public int Count
         {
             get
@@ -32,53 +32,94 @@ namespace Home
 
         }
 
-       
-          public void Add(T positive)
-        { 
+
+        public void Add(T positive)
+        {
             count++;
             T[] placeholder = new T[count];
-            for(int i = 0; i < count -1; i++)
+            for (int i = 0; i < count - 1; i++)
             {
                 placeholder[i] = myList[i];
             }
             myList = placeholder;
             myList[count - 1] = positive;
         }
-    public void Remove(T item)
-    {
-        T Counter;
-        while()
-    }
-        public void GetCounter()
+        public void Remove(T item)
         {
-            int Counter;
-            while(myList != null)
+
+            for (int i = 0; i < Count; i++)
             {
-                Counter++;
+
+                int placeholdercount = 0;
+                if (myList[i].Equals(item))
+                {
+                    T[] placeholder = new T[count - 1];
+                    count--;
+                    for (int j = 0; j < i; j++)
+                    {
+                        placeholdercount++;
+                        myList[j] = placeholder[j];
+                    }
+
+                    for (int j = i + 1; j < count + 1; j++)
+                    {
+                        placeholdercount++;
+                        myList[j] = placeholder[j];
+                    }
+                }
+                return;
             }
         }
-         public override string ToString()
-        {
-            // declare empty string
+
+
+
+
+
+
+
+    }
+}
+        
+
+                
+
+        
+       
+
+        
+         
+        
+    
+        //public void GetCounter()
+        //{
+        //    int Counter;
+        //    while(myList != null)
+        //    {
+        //        Counter++;
+        //    }
+        //}
+    //     public override string ToString()
+    //    {
+    //        // declare empty string
             
                         
-            string answerString = "";
-            foreach (T item in myList)
-            {
-                answerString += item;
-            }
-            return answerString;
-            // pull index out of list
-            // add piece from list to empty string
-                //loop this process
-            // return final string
-        }
+    //        string answerString = "";
+    //        foreach (T item in myList)
+    //        {
+    //            answerString += item;
+    //        }
+    //        return answerString;
+    //        // pull index out of list
+    //        // add piece from list to empty string
+    //            //loop this process
+    //        // return final string
+    //    }
 
 
-        //public class CustomList<T> : IEnumerable
-    }//list<int i - new list<int>();
-    //i.add(16);
-    //i.add(20);
-    //custom list<int>list new customlist<int>();
-    //customList<lemon> Lemon = new CustomerList<lemons>();
-}
+    //    //public class CustomList<T> : IEnumerable
+    ////list<int i - new list<int>();
+    ////i.add(16);
+    ////i.add(20);
+    ////custom list<int>list new customlist<int>();
+    ////customList<lemon> Lemon = new CustomerList<lemons>();
+

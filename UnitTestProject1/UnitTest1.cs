@@ -252,7 +252,9 @@ namespace UnitTestProject1
             list.Add(1);
             list.Add(2);
             list.Add(3);
-            otherlist.Add(2, 5, 6);
+            otherlist.Add(2);
+            otherlist.Add(5);
+            otherlist.Add(6);
             CustomList<int> together = list + otherlist;
 
 
@@ -296,7 +298,7 @@ namespace UnitTestProject1
 
 
 
-            int actualResult = together.count;
+            int actualResult = together.Count;
             int exspectedResult = 2;
 
             Assert.AreEqual(actualResult, exspectedResult);
@@ -405,7 +407,7 @@ namespace UnitTestProject1
         list.Add(2);
         list.Add(3);
         int loop = 0;
-        for(each item in list) {
+        foreach(int item in list) {
                 loop++;
             }
                 int actualResult = loop;
@@ -454,7 +456,7 @@ namespace UnitTestProject1
             Assert.AreEqual(actualResult, exspectedResult);
         }
         [TestMethod]
-        public void ZipTest1()
+        public void ZipTest3()
         {
             CustomList<int> odd = new CustomList<int>();
             CustomList<int> even = new CustomList<int>();
@@ -470,7 +472,7 @@ namespace UnitTestProject1
 
             CustomList<int> result = odd.Zip(even)();
             int actualResult = result[5];
-            int exspectedResult = "2";
+            int exspectedResult = 2;
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
