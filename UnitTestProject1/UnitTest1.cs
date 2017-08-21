@@ -105,7 +105,7 @@ namespace UnitTestProject1
 
 
             list.Remove("Mom");
-            list.Remove("Carrol");
+            list.Remove("Carol");
 
 
             string actualResult = list[1];
@@ -399,23 +399,23 @@ namespace UnitTestProject1
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
-        [TestMethod]
-        public void iterableTest1()
-        {
+        //[TestMethod]
+        //public void iterableTest1()
+        //{
             
-        CustomList<int> list = new CustomList<int>();
-        list.Add(2);
-        list.Add(3);
-        int loop = 0;
-        foreach(int item in list) {
-                loop++;
-            }
-                int actualResult = loop;
-                int exspectedResult = 2;
+        //CustomList<int> list = new CustomList<int>();
+        //list.Add(2);
+        //list.Add(3);
+        //int loop = 0;
+        //foreach(int item in list) {
+        //        loop++;
+        //    }
+        //        int actualResult = loop;
+        //        int exspectedResult = 2;
 
-                Assert.AreEqual(actualResult, exspectedResult);
+        //        Assert.AreEqual(actualResult, exspectedResult);
 
-            }
+        //    }
         [TestMethod]
         public void ZipTest2()
         {
@@ -429,7 +429,7 @@ namespace UnitTestProject1
 
 
 
-             CustomList<int> result = odd.Zip(even)();
+             CustomList<int> result = odd.Zip(even);
             int actualResult = result[2];
             int exspectedResult = 3;
 
@@ -446,10 +446,10 @@ namespace UnitTestProject1
             odd.Add("Alex");
             even.Add("there");
             even.Add("names'");
+            even.Add("burp");
 
 
-
-            CustomList<string> result = odd.Zip(even)();
+            CustomList<string> result = odd.Zip(even);
             string actualResult = result[2];
             string exspectedResult = "my";
 
@@ -467,10 +467,11 @@ namespace UnitTestProject1
             even.Add(6);
             even.Add(4);
             even.Add(2);
+            
 
 
 
-            CustomList<int> result = odd.Zip(even)();
+            CustomList<int> result = odd.Zip(even);
             int actualResult = result[5];
             int exspectedResult = 2;
 

@@ -8,6 +8,7 @@ namespace Home
 {
     public class CustomList<T>
     {
+       
         public T[] myList;
         private int count;
         public T this[int i]
@@ -30,6 +31,7 @@ namespace Home
             myList = new T[count];
 
 
+
         }
 
 
@@ -46,7 +48,7 @@ namespace Home
         }
         public void Remove(T item)
         {
-
+            
             for (int i = 0; i < Count; i++)
             {
 
@@ -54,21 +56,63 @@ namespace Home
                 if (myList[i].Equals(item))
                 {
                     T[] placeholder = new T[count - 1];
-                    count--;
+                    
+                    
+                    
                     for (int j = 0; j < i; j++)
                     {
+                        placeholder[placeholdercount] = myList[j];
                         placeholdercount++;
-                        myList[j] = placeholder[j];
+                        
+
                     }
 
-                    for (int j = i + 1; j < count + 1; j++)
+                    for (int j = i + 1; j < count; j++)
                     {
+                        placeholder[placeholdercount] = myList[j];
                         placeholdercount++;
-                        myList[j] = placeholder[j];
                     }
+                    myList = placeholder;
+                    count--;
+                    return;
                 }
-                return;
+                
             }
+        }
+
+
+        public static CustomList<T> operator +(CustomList<T> b, CustomList<T> c)
+        {
+            CustomList<T> positive = new CustomList<T>();
+
+           
+
+            positive.count = b.count + c.count;
+            return positive;
+        }
+      
+        public static CustomList<T> operator -(CustomList<T> b, CustomList<T> c)
+        {
+            CustomList<T> minus = new CustomList<T>();
+           // minus.number = b.number - c.number;
+           // minus.singlenumber = b.singlenumber - c.singlenumber;
+            return minus;
+        }
+        public  CustomList<T> Zip(CustomList<T> list)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for(int i = 0; i < this.count + list.count; i++)
+            {
+                if (i < this.count)
+                {
+                    newList.Add(this[i]);
+                }
+                if (i < list.count)
+                {
+                    newList.Add(list[i]);
+                }
+            }
+            return newList;
         }
 
 
@@ -77,7 +121,17 @@ namespace Home
 
 
 
-    }
+
+
+
+
+
+
+
+
+
+
+        }
 }
         
 
