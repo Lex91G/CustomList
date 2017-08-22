@@ -259,7 +259,7 @@ namespace UnitTestProject1
 
 
             int actualResult = together[2];
-            int exspectedResult = 3;
+            int exspectedResult = 2;
 
             Assert.AreEqual(actualResult, exspectedResult);
         }
